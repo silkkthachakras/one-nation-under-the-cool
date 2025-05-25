@@ -1,17 +1,20 @@
-/* --- Layout -------------------------------------------------- */
+/* ========================= PURE BLACK THEME ========================= */
+
+/* --- Layout --------------------------------------------------------- */
 body {
   margin: 0;
-  background: #0f0f0f;
-  color: #fafafa;
+  background: #000;              /* pitch-black background */
+  color: #E0E0E0;                /* light gray text */
   font-family: 'Helvetica Neue', Arial, sans-serif;
 }
+
 .site-wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* --- Header -------------------------------------------------- */
+/* --- Header --------------------------------------------------------- */
 .header {
   background: #000;
   padding: 14px 24px;
@@ -19,52 +22,63 @@ body {
   font-weight: 600;
   text-transform: uppercase;
   font-size: 0.9rem;
-  border-bottom: 2px solid #222;
+  border-bottom: 2px solid #050505;   /* subtle separator */
 }
-.header h1 {
-  margin: 0;
-  color: #fff;
-  white-space: nowrap;
-}
+.header h1 { margin: 0; color: #FFF; white-space: nowrap; }
 
-/* --- Gallery ------------------------------------------------- */
+/* --- Gallery -------------------------------------------------------- */
 .gallery {
   flex: 1;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 8px;
-  padding: 16px;
+  gap: 10px;
+  padding: 20px;
 }
+
 .tile {
-  background: #111;
-  overflow: hidden;
+  background: #000;
   position: relative;
+  overflow: hidden;
+  transition: filter 0.25s ease;
 }
+.tile:hover { filter: brightness(80%); }
+
 .tile img {
   width: 100%;
   height: 200px;
   object-fit: cover;
   display: block;
-  filter: contrast(110%) saturate(120%);
+  filter: brightness(95%) contrast(110%) saturate(115%);
 }
+
+audio {
+  outline: none;
+}
+
 .tile figcaption {
   position: absolute;
   bottom: 0;
   width: 100%;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0,0,0,0.9);
   font-size: 0.75rem;
   display: flex;
   justify-content: space-between;
   padding: 4px 6px;
 }
-.tile .notes { color: #c8c8c8; }
+.tile figcaption span:first-child { color: #F5F5F5; }
+.tile .notes { color: #9B9B9B; }
 
-/* --- Music Player ------------------------------------------- */
+/* --- Music Player (react-h5-audio-player overrides) ----------------- */
 .music-player {
   background: #000;
-  border-top: 2px solid #222;
+  border-top: 2px solid #050505;
 }
 .music-player .rhap_container {
   background: #000;
-  color: #fff;
+  color: #E0E0E0;
 }
+.music-player .rhap_controls button { color: #E0E0E0; }
+.music-player .rhap_progress-bar,
+.music-player .rhap_volume-bar   { background: #1A1A1A; }
+.music-player .rhap_progress-filled,
+.music-player .rhap_volume-filled { background: #29BDEF; }
