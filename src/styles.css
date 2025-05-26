@@ -1,4 +1,10 @@
-/* ========================= PURE BLACK THEME ========================= */
+/* Temporary CSS patch to force reconfirm changes */
+
+body {
+  margin: 0;
+  background: #000;              /* pitch-black background */
+}
+
 
 /* --- Layout --------------------------------------------------------- */
 body {
